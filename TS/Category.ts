@@ -1,10 +1,13 @@
-export class Category {
+import { Model } from "./Model";
 
-    private id: number;
+export class Category extends Model {
+
+    protected $dom: JQuery;
+
     private name: string;
 
     constructor(id:number, name:string){
-        this.id = id;
+        super( id );
         this.name = name;
     }
 
@@ -12,6 +15,8 @@ export class Category {
         return this.name;
     }
 
-
+    display($parent: JQuery): void {
+        
+    }
 
 }

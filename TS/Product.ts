@@ -1,20 +1,16 @@
 import { Category } from "./Category";
+import { Model } from "./Model";
 
-export class Product {
+export class Product extends Model {
 
-    private id:number;
     private name:string;
     private category: Category;
-    private $dom: JQuery;
+    protected $dom: JQuery;
 
     constructor( id: number, name:string, category: Category ){
-        this.id = id;
+        super(id);
         this.name = name;
         this.category = category;
-    }
-
-    getId(): number {
-        return this.id;
     }
 
     display( parent: JQuery ): void {

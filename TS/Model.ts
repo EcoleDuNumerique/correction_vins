@@ -1,6 +1,6 @@
 export abstract class Model {
 
-    private id: number;
+    protected id: number;
 
     constructor( id:number ){
         this.id = id;

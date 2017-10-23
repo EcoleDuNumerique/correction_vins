@@ -4,8 +4,14 @@ import { Model } from "./Model";
 export class Vendor extends Model {
    
     protected $dom: JQuery;
-
+    private name: string;
     private products: Product[];
+
+    constructor( id:number, name:string, products:Product[] ){
+        super( id );
+        this.name = name;
+        this.products = products;
+    }
     
     removeProductById( id:number ){
 

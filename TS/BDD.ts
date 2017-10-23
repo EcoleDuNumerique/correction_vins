@@ -40,12 +40,12 @@ export const BDD:{
         {
             id: 2,
             name: "Jeremy",
-            products : [ 3 ]
+            products : [ 2 ]
         },
         {
             id: 3,
             name: "Stephane",
-            products : [ 2 ]
+            products : [ 1 ]
         }
 
     ]
