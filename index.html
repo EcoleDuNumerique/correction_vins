@@ -9,39 +9,49 @@
 </head>
 <body>
 
-    <div id="container">
-        <section id="shop-list">
-            <div class="container" id="rouge">
-                <div id="rouge1" class="item rouge"></div>
-                <div id="rouge2" class="item rouge"></div>
-                <div id="rouge3" class="item rouge"></div>
-                <div id="rouge4" class="item rouge"></div>
-                <div id="rouge5" class="item rouge"></div>
-            </div>
+    <div id="app">
+        <div class="page active" data-page="detail">
+            <nav>
+                <ul>
+                    <li><a href="vendeurs"> Voir les vendeurs </a></li>
+                </ul>
+            </nav>
+            <section id="shop-list">
+                <div class="container" id="rouge">
+                    <div id="rouge1" class="item rouge"></div>
+                    <div id="rouge2" class="item rouge"></div>
+                    <div id="rouge3" class="item rouge"></div>
+                    <div id="rouge4" class="item rouge"></div>
+                    <div id="rouge5" class="item rouge"></div>
+                </div>
 
-            <div class="container" id="rose">
-                <div id="rose1" class="item rose"></div>
-                <div id="rose2" class="item rose"></div>
-                <div id="rose3" class="item rose"></div>
-                <div id="rose4" class="item rose"></div>
-                <div id="rose5" class="item rose"></div>
-            </div>
+                <div class="container" id="rose">
+                    <div id="rose1" class="item rose"></div>
+                    <div id="rose2" class="item rose"></div>
+                    <div id="rose3" class="item rose"></div>
+                    <div id="rose4" class="item rose"></div>
+                    <div id="rose5" class="item rose"></div>
+                </div>
 
-            <div class="container" id="blanc">
-                <div id="blanc1" class="item blanc"></div>
-                <div id="blanc2" class="item blanc"></div>
-                <div id="blanc3" class="item blanc"></div>
-                <div id="blanc4" class="item blanc"></div>
-                <div id="blanc5" class="item blanc"></div>
-            </div>
-        </section>
-        <section id="vendor-list">
-            <div class="container vendor">
+                <div class="container" id="blanc">
+                    <div id="blanc1" class="item blanc"></div>
+                    <div id="blanc2" class="item blanc"></div>
+                    <div id="blanc3" class="item blanc"></div>
+                    <div id="blanc4" class="item blanc"></div>
+                    <div id="blanc5" class="item blanc"></div>
+                </div>
+            </section>
+            <section id="vendor-list">
+                <div class="container vendor">
 
-            </div>
-        </section>
-    </div>
-    
+                </div>
+            </section>
+        </div>
+        <div class="page" data-page="vendeurs">
+            <h1> Vendeurs </h1>
+        </div>
+    </div>  
+
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="JS/main.js"></script>

@@ -1,4 +1,5 @@
 import { App } from "./App";
+import { Product } from "./Product";
 
 var app:App = new App();
 
@@ -28,3 +29,4 @@ app.$container.on("drop", function(event){
     }
 
 });
+

@@ -1,10 +1,20 @@
-html, body {
+html, body, #app {
     height: 100%;
     margin: 0px;
 }
-#container {
-    display: flex;
+.page {
+    display: none;
     height: 100%;
+}
+.page.active {
+   display: flex;
+}
+nav{
+    position: fixed;
+    right: 10px;
+}
+ul{
+    list-style: none;
 }
 .container {
     padding : 50px;
