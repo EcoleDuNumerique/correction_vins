@@ -28,10 +28,15 @@ export class Vendor extends Model {
 
     }
 
+    getProducts(): Product[] {
+        return this.products;
+    }
+
     display($parent: JQuery): void {
         
         let div: string = "<div class='vendor' id='vendor" + this.id + "' data-vendor='" + this.id + "' >";
-            div += this.name + "</div>";
+        div += "<a href='detail'>";    
+        div += this.name + "</a></div>";
             
         this.$dom = $( div );
         $parent.append( this.$dom );

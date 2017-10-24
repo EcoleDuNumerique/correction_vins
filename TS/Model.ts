@@ -11,6 +11,10 @@ export abstract class Model {
         return this.id;
     }
 
+    get$Dom(): JQuery{
+        return this.$dom;
+    }
+
     //!Important
     abstract display( $parent: JQuery ): void;
 

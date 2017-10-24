@@ -13,6 +13,10 @@ export class Product extends Model {
         this.category = category;
     }
 
+    getCategory(): Category {
+        return this.category;
+    }
+
     display( parent: JQuery ): void {
 
         let category_name:string = this.category.getName();

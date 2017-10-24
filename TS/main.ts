@@ -1,5 +1,6 @@
 import { App } from "./App";
 import { Product } from "./Product";
+import { Vendor } from "./Vendor";
 
 var app:App = new App();
 
@@ -27,6 +28,14 @@ app.$container.on("drop", function(event){
     else if( $element.hasClass( containerId ) ){
         $(this).append( $element );
     }
+
+});
+
+$(document).on("click", ".vendor", function(){
+
+    let id_vendeur:number = $(this).data("vendor");
+    let vendor: Vendor = app.getVendorById( id_vendeur );
+    app.displayProductsByVendor( vendor );
 
 });
 

@@ -9,6 +9,7 @@ export class App {
     public $container: JQuery;
     public $category_container: JQuery;
     public $all_vendors: JQuery;
+    public $sented_container: JQuery;
 
     private categories: Category[];
     private all_products: Product[];
@@ -21,6 +22,7 @@ export class App {
         this.$container = $(".container");
         this.$category_container = $("#shop-list");
         this.$all_vendors = $("#all-vendors");
+        this.$sented_container = $("#sended-products");
 
         this.categories = [];
         this.all_products = [];
@@ -32,6 +34,9 @@ export class App {
 
         this.displayCategories();
         this.displayVendors();
+
+        if( this.vendors.length > 0 )
+            this.displayProductsByVendor( this.vendors[0] );
 
     }
 
@@ -125,7 +130,7 @@ export class App {
 
     }
 
-    getProductById( id: number ): Product{
+    getProductById( id: number ): Product {
 
         for( let product of this.all_products ){
 
@@ -139,7 +144,7 @@ export class App {
 
     }
 
-    displayCategories(){
+    displayCategories(): void {
 
         for( let category of this.categories ){
             category.display( this.$category_container );
@@ -147,12 +152,66 @@ export class App {
 
     }
 
-    displayVendors(){
+    displayVendors(): void {
 
         for( let vendor of this.vendors ){
             vendor.display( this.$all_vendors );
         }
-        
+
+    }
+
+    clearBoard(): void {
+        this.$sented_container.html("");
+        for( let category of this.categories ){
+            category.get$Dom().html("");
+        }
+    }
+
+    displayProductsByVendor( vendor:Vendor ):void {
+
+        this.clearBoard();
+
+        //On cherche quels sont les produits vendu et non-vendu
+        for( let product of this.all_products ){
+
+            let flag:boolean = false;//true = vendu, false = non-vendu
+
+            for( let vproduct of vendor.getProducts() ){
+
+                if( vproduct.getId() == product.getId() ){
+                    //On a trouvé l'élément !
+                    flag = true;
+                }
+
+            }
+
+            if( flag == true ){
+                //affichage colonne droite
+                product.display( this.$sented_container );
+            }
+            else {
+                //affichage colonne gauche
+                let category: Category = product.getCategory();
+                product.display( category.get$Dom() );
+            }
+
+
+        }
+
+    }
+
+    getVendorById( id_vendor:number ):Vendor {
+
+        for( let vendor of this.vendors ){
+
+            if( vendor.getId() == id_vendor ){
+                return vendor;
+            }
+
+        }
+
+        return null;
+
     }
 
 }

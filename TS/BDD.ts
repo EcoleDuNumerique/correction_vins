@@ -28,7 +28,7 @@ export const BDD:{
         {
             id : 2,
             name : "rivesalte",
-            categoryId : 3
+            categoryId : 2
         },
         {
             id : 3,
