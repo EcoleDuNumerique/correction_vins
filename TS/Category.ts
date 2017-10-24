@@ -2,8 +2,6 @@ import { Model } from "./Model";
 
 export class Category extends Model {
 
-    protected $dom: JQuery;
-
     private name: string;
 
     constructor(id:number, name:string){
@@ -17,6 +15,10 @@ export class Category extends Model {
 
     display($parent: JQuery): void {
         
+        let div: string = "<div class='container' id='" + this.name + "' data-category=" + this.id + " ></div>";
+        this.$dom = $( div );
+        $parent.append( this.$dom );
+
     }
 
 }

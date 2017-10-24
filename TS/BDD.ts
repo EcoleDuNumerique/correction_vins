@@ -29,6 +29,11 @@ export const BDD:{
             id : 2,
             name : "rivesalte",
             categoryId : 3
+        },
+        {
+            id : 3,
+            name : "champagne",
+            categoryId : 3
         }
     ],
     vendors : [
@@ -45,7 +50,7 @@ export const BDD:{
         {
             id: 3,
             name: "Stephane",
-            products : [ 1 ]
+            products : [ 3 ]
         }
 
     ]

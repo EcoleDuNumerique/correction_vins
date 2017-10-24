@@ -10,14 +10,15 @@
 <body>
 
     <div id="app">
-        <div class="page active" data-page="detail">
+        <div id="detail" class="page active">
             <nav>
                 <ul>
-                    <li><a href="vendeurs"> Voir les vendeurs </a></li>
+                    <li><a href="vendors"> Voir les vendeurs </a></li>
                 </ul>
             </nav>
             <section id="shop-list">
-                <div class="container" id="rouge">
+                
+                <!--<div class="container" id="rouge">
                     <div id="rouge1" class="item rouge"></div>
                     <div id="rouge2" class="item rouge"></div>
                     <div id="rouge3" class="item rouge"></div>
@@ -39,17 +40,27 @@
                     <div id="blanc3" class="item blanc"></div>
                     <div id="blanc4" class="item blanc"></div>
                     <div id="blanc5" class="item blanc"></div>
-                </div>
+                </div>-->
             </section>
             <section id="vendor-list">
                 <div class="container vendor">
-
+                    
                 </div>
             </section>
         </div>
-        <div class="page" data-page="vendeurs">
+
+        <div id="vendors" class="page">
             <h1> Vendeurs </h1>
+            <nav>
+                <ul>
+                    <li><a href="detail"> Voir le detail </a></li>
+                </ul>
+            </nav>
+            <div id="all-vendors">
+
+            </div>
         </div>
+
     </div>  
 
     <script src="node_modules/systemjs/dist/system.js"></script>

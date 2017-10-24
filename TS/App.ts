@@ -7,6 +7,8 @@ export class App {
 
     public $item: JQuery;
     public $container: JQuery;
+    public $category_container: JQuery;
+    public $all_vendors: JQuery;
 
     private categories: Category[];
     private all_products: Product[];
@@ -17,6 +19,8 @@ export class App {
         this.$item = $(".item");
         this.$item.prop("draggable", true);
         this.$container = $(".container");
+        this.$category_container = $("#shop-list");
+        this.$all_vendors = $("#all-vendors");
 
         this.categories = [];
         this.all_products = [];
@@ -26,7 +30,9 @@ export class App {
         this.getAllProducts();
         this.getAllVendors();
 
-        console.log( this.vendors );
+        this.displayCategories();
+        this.displayVendors();
+
     }
 
     getAllProducts(): void {
@@ -131,6 +137,22 @@ export class App {
 
         return null;
 
+    }
+
+    displayCategories(){
+
+        for( let category of this.categories ){
+            category.display( this.$category_container );
+        }
+
+    }
+
+    displayVendors(){
+
+        for( let vendor of this.vendors ){
+            vendor.display( this.$all_vendors );
+        }
+        
     }
 
 }

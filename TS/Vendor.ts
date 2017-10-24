@@ -30,6 +30,12 @@ export class Vendor extends Model {
 
     display($parent: JQuery): void {
         
+        let div: string = "<div class='vendor' id='vendor" + this.id + "' data-vendor='" + this.id + "' >";
+            div += this.name + "</div>";
+            
+        this.$dom = $( div );
+        $parent.append( this.$dom );
+
     }
 
 

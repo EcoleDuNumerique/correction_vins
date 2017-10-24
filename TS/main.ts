@@ -30,3 +30,14 @@ app.$container.on("drop", function(event){
 
 });
 
+$("a").click(function(event){
+
+    event.preventDefault();
+
+    var targetId:string = $(this).attr("href");
+    var $target:JQuery = $("#" + targetId);
+
+    $(".page").hide();
+    $target.show();
+
+});

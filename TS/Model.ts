@@ -1,6 +1,7 @@
 export abstract class Model {
 
     protected id: number;
+    protected $dom: JQuery;
 
     constructor( id:number ){
         this.id = id;
@@ -11,7 +12,6 @@ export abstract class Model {
     }
 
     //!Important
-    protected abstract $dom: JQuery;
     abstract display( $parent: JQuery ): void;
 
 }
