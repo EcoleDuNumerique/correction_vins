@@ -15,7 +15,7 @@ export class Category extends Model {
 
     display($parent: JQuery): void {
         
-        let div: string = "<div class='container' id='" + this.name + "' data-category=" + this.id + " ></div>";
+        let div: string = "<div class='container container-cat' id='" + this.name + "' data-category=" + this.id + " ></div>";
         this.$dom = $( div );
         $parent.append( this.$dom );
 

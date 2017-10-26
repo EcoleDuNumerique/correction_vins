@@ -14,6 +14,7 @@ export class App {
     private categories: Category[];
     private all_products: Product[];
     private vendors: Vendor[];
+    private currentVendor: Vendor;
 
     constructor(){
 
@@ -35,9 +36,19 @@ export class App {
         this.displayCategories();
         this.displayVendors();
 
-        if( this.vendors.length > 0 )
-            this.displayProductsByVendor( this.vendors[0] );
+        if( this.vendors.length > 0 ){
+            this.currentVendor = this.vendors[0];
+            this.displayProductsByVendor( this.currentVendor );
+        }
 
+    }
+
+    getCurrentVendor():Vendor {
+        return this.currentVendor;
+    }
+
+    setCurrentVendor( vendor:Vendor ){
+        this.currentVendor = vendor;
     }
 
     getAllProducts(): void {

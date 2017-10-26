@@ -4,30 +4,37 @@ import { Vendor } from "./Vendor";
 
 var app:App = new App();
 
-app.$container.on("dragover", function(event){
+$(document).on("dragover", ".container", function(event){
     event.preventDefault();
 });
 
-app.$item.on("dragstart", function(event){
-
+$(document).on("dragstart", ".item", function(event){   
+    
     const dragEvent: DragEvent = event.originalEvent as DragEvent;
-    dragEvent.dataTransfer.setData( "id", $(this).attr("id") );
+    dragEvent.dataTransfer.setData( "id", $(this).data("product") );
 
 });
 
-app.$container.on("drop", function(event){
+//Event container fixe de droite
+app.$sented_container.on("drop", function(event){
 
     const dragEvent: DragEvent = event.originalEvent as DragEvent;
-    const id: string = dragEvent.dataTransfer.getData("id");
-    const $element: JQuery = $("#"+id);
-    const containerId: string = $(this).attr("id");
+    let id_product: number = parseInt( dragEvent.dataTransfer.getData("id") );
+    let product: Product = app.getProductById( id_product );
+    app.getCurrentVendor().addProduct( product );
+    $(this).append( product.get$Dom() );
 
-    if( $(this).hasClass("vendor") ){
-        $(this).append( $element );
-    }
-    else if( $element.hasClass( containerId ) ){
-        $(this).append( $element );
-    }
+});
+
+//Event container des categorie
+$(document).on("drop", ".container-cat", function(event){
+
+    const dragEvent: DragEvent = event.originalEvent as DragEvent;
+    let id_product: number = parseInt( dragEvent.dataTransfer.getData("id") );
+    let product: Product = app.getProductById( id_product );
+    app.getCurrentVendor().removeProduct( product );
+    product.getCategory().get$Dom()
+        .append( product.get$Dom() );
 
 });
 
@@ -35,7 +42,8 @@ $(document).on("click", ".vendor", function(){
 
     let id_vendeur:number = $(this).data("vendor");
     let vendor: Vendor = app.getVendorById( id_vendeur );
-    app.displayProductsByVendor( vendor );
+    app.setCurrentVendor( vendor );
+    app.displayProductsByVendor( app.getCurrentVendor() );
 
 });
 

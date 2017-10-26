@@ -32,6 +32,24 @@ export class Vendor extends Model {
         return this.products;
     }
 
+    addProduct( product: Product ): void{
+        this.products.push( product );
+    }
+
+    removeProduct( product: Product ): void{
+
+        for( let key in this.products ){
+
+            let vproduct: Product = this.products[key];
+
+            if( vproduct.getId() == product.getId() ){
+                this.products.splice( parseInt(key), 1 );
+            }
+            return;
+        }
+
+    }
+
     display($parent: JQuery): void {
         
         let div: string = "<div class='vendor' id='vendor" + this.id + "' data-vendor='" + this.id + "' >";
