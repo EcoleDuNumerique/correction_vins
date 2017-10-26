@@ -8,6 +8,7 @@
         "sourceMap": true,
         "rootDir":"TS",
         "watch" : true,
+        "target": "es6",
         /*"outDir":"JS"*/
         "outFile":"JS/main.js"
     }

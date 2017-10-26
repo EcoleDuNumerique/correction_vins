@@ -2,6 +2,7 @@ import { Product } from "./Product";
 import { BDD } from "./BDD";
 import { Category } from "./Category";
 import { Vendor } from "./Vendor";
+import { APIService } from "./APIService";
 
 export class App {
 
@@ -53,20 +54,25 @@ export class App {
 
     getAllProducts(): void {
         
-        let products: {
-            id: number,
-            name: string,
-            categoryId: number
-        }[] = BDD.products;
+        var api:APIService = APIService.getService();
+        let products:Promise<any> = api.getWines();
 
-        for ( let product of products ){
-            let the_product: Product = new Product(
-                product.id,
-                product.name,
-                this.getCategoryById( product.categoryId )
-            );
-            this.all_products.push( the_product );
-        }
+        products
+            .then(( products ) => {
+                
+                for ( let product of products ){
+                    let the_product: Product = new Product(
+                        product.id,
+                        product.name,
+                        this.getCategoryById( product.categoryId )
+                    );
+                    this.all_products.push( the_product );
+                }
+
+            })
+            .catch((error) => {
+                console.log(error);
+            })
 
     }
 
